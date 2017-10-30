@@ -5,8 +5,8 @@ LABEL Github="https://github.com/falcoprescher$STARBOUND_FOLDER-Docker"
 
 ENV DEBIAN_FRONTEND noninteractive
 
-ENV STREAM_USERNAME "anonymous"
-ENV STREAM_PASSWORD ""
+ENV STEAM_USERNAME "anonymous"
+ENV STEAM_PASSWORD ""
 ENV STARBOUND_FOLDER "/starbound"
 ENV STARBOUND_DATAFOLDER "${STARBOUND_FOLDER}/data"
 ENV STARBOUND_SCRIPTSFOLDER "${STARBOUND_FOLDER}/scripts"
@@ -34,7 +34,7 @@ RUN apt-get install curl tar zip lib32stdc++6 -y && \
 RUN mkdir -p $STARBOUND_FOLDER
 RUN mkdir -p /opt/steamcmd
 
-# Stream CMD download and setup Starbound server
+# Steam CMD download and setup Starbound server
 WORKDIR /opt/steamcmd
 RUN curl -s http://media.steampowered.com/client/steamcmd_linux.tar.gz | tar xzvf -
 
