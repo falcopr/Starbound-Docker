@@ -8,6 +8,8 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV STREAM_USERNAME "anonymous"
 ENV STREAM_PASSWORD ""
 ENV STARBOUND_FOLDER "/starbound"
+ENV STARBOUND_DATAFOLDER "${STARBOUND_FOLDER}/data"
+ENV STARBOUND_SCRIPTSFOLDER "${STARBOUND_FOLDER}/scripts"
 
 ENV LANG de_DE.UTF-8
 
@@ -36,30 +38,24 @@ WORKDIR /opt/steamcmd
 RUN curl -s http://media.steampowered.com/client/steamcmd_linux.tar.gz | tar xzvf -
 
 RUN chmod +x ./steamcmd.sh
-RUN ./steamcmd.sh \
-    +@NoPromptForPassword 1 \
-    +login $STEAM_USERNAME $STEAM_PASSWORD \
-    +force_install_dir $STARBOUND_FOLDER \
-    +app_update 211820 validate \
-    +quit
 
 # User Management
-RUN useradd --disabled-password --gecos '' starbound
+RUN adduser --disabled-password --gecos '' starbound
 RUN chown -R starbound $STARBOUND_FOLDER
+
+# Grant execution rights for script
+COPY .${STARBOUND_SCRIPTSFOLDER}/start.sh ${STARBOUND_SCRIPTSFOLDER}/start.sh
+RUN chmod +x ${STARBOUND_SCRIPTSFOLDER}/start.sh
 
 USER starbound
 WORKDIR $STARBOUND_FOLDER
-
-# Grant execution rights for script
-ADD ./scripts/start.sh ./scripts.sh
-RUN chmod +x ./start.sh
 
 # Ports
 EXPOSE 21025
 EXPOSE 21026
 
 # Volume
-VOLUME $STARBOUND_FOLDER
+VOLUME $STARBOUND_DATAFOLDER
 
 # Start scripts
-CMD ["./start.sh"]
+ENTRYPOINT ["./scripts/start.sh"]
