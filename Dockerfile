@@ -44,6 +44,7 @@ RUN chmod +x ./steamcmd.sh
 # User Management
 RUN adduser --disabled-password --gecos '' starbound
 RUN chown -R starbound:starbound $STARBOUND_FOLDER
+RUN chown -R starbound:starbound /opt/steamcmd
 
 # Grant execution rights for script
 COPY .${STARBOUND_SCRIPTSFOLDER}/start.sh ${STARBOUND_SCRIPTSFOLDER}/start.sh
