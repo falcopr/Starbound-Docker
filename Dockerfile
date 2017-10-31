@@ -31,7 +31,8 @@ RUN apt-get install curl tar zip lib32stdc++6 -y && \
     dpkg --add-architecture i386 && \
     apt-get install lib32gcc1 -y
 
-RUN mkdir -p $STARBOUND_FOLDER
+RUN mkdir -p $STARBOUND_DATAFOLDER
+RUN mkdir -p $STARBOUND_SCRIPTSFOLDER
 RUN mkdir -p /opt/steamcmd
 
 # Steam CMD download and setup Starbound server
@@ -42,7 +43,7 @@ RUN chmod +x ./steamcmd.sh
 
 # User Management
 RUN adduser --disabled-password --gecos '' starbound
-RUN chown -R starbound $STARBOUND_FOLDER
+RUN chown -R starbound:starbound $STARBOUND_FOLDER
 
 # Grant execution rights for script
 COPY .${STARBOUND_SCRIPTSFOLDER}/start.sh ${STARBOUND_SCRIPTSFOLDER}/start.sh
