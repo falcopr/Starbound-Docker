@@ -10,26 +10,27 @@ ENV STEAM_PASSWORD ""
 ENV STARBOUND_FOLDER "/starbound"
 ENV STARBOUND_DATAFOLDER "${STARBOUND_FOLDER}/data"
 ENV STARBOUND_SCRIPTSFOLDER "${STARBOUND_FOLDER}/scripts"
-ENV STARBOUND_LOCALE "de_DE"
+# ENV STARBOUND_LOCALE "de_DE"
 
-ENV LANG ${STARBOUND_LOCALE}.UTF-8
+# ENV LANG ${STARBOUND_LOCALE}.UTF-8
 
 # Package cleanup and language setup
 RUN apt-get clean && \
-    apt-get update && \
-    apt-get install -y locales && \
-    echo "${STARBOUND_LOCALE}.UTF-8 UTF-8" > /etc/locale.gen && \
-    locale-gen ${STARBOUND_LOCALE}.UTF-8 && \
-    dpkg-reconfigure locales && \
-    /usr/sbin/update-locale LANG=$LANG 
+    apt-get update
+    # apt-get update && \
+    # apt-get install -y locales && \
+    # echo "${STARBOUND_LOCALE}.UTF-8 UTF-8" > /etc/locale.gen && \
+    # locale-gen ${STARBOUND_LOCALE}.UTF-8 && \
+    # dpkg-reconfigure locales && \
+    # /usr/sbin/update-locale LANG=$LANG 
 
-ENV LANGUAGE ${STARBOUND_LOCALE}.UTF-8
-ENV LC_ALL ${STARBOUND_LOCALE}.UTF-8
+# ENV LANGUAGE ${STARBOUND_LOCALE}.UTF-8
+# ENV LC_ALL ${STARBOUND_LOCALE}.UTF-8
 
 # Libraries and programs
 RUN apt-get install curl tar zip lib32stdc++6 -y && \
     dpkg --add-architecture i386 && \
-    apt-get install lib32gcc1 -y
+    apt-get install lib32gcc1 libvorbisfile3 -y
 
 RUN mkdir -p $STARBOUND_DATAFOLDER
 RUN mkdir -p $STARBOUND_SCRIPTSFOLDER

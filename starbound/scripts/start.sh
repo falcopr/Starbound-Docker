@@ -6,6 +6,6 @@
     +app_update 211820 validate \
     +quit
 
-cd ${STARBOUND_DATAFOLDER}/linux64
+cd ${STARBOUND_DATAFOLDER}/linux
 
 ./starbound_server
