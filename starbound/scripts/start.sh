@@ -6,7 +6,7 @@
     +app_update 211820 validate \
     +quit
 
-cp -f $STARBOUND_CONFIGFOLDER/starbound_server.config ${STARBOUND_DATAFOLDER}/storage/starbound_server.config
+/bin/cp -rf $STARBOUND_CONFIGFOLDER/starbound_server.config ${STARBOUND_DATAFOLDER}/storage/starbound_server.config
 
 cd ${STARBOUND_DATAFOLDER}/linux
 ./starbound_server
