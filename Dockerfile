@@ -10,6 +10,7 @@ ENV STEAM_PASSWORD ""
 ENV STARBOUND_FOLDER "/starbound"
 ENV STARBOUND_DATAFOLDER "${STARBOUND_FOLDER}/data"
 ENV STARBOUND_SCRIPTSFOLDER "${STARBOUND_FOLDER}/scripts"
+ENV STARBOUND_CONFIGFOLDER "${STARBOUND_FOLDER}/config"
 # ENV STARBOUND_LOCALE "de_DE"
 
 # ENV LANG ${STARBOUND_LOCALE}.UTF-8
@@ -34,6 +35,7 @@ RUN apt-get install curl tar zip lib32stdc++6 -y && \
 
 RUN mkdir -p $STARBOUND_DATAFOLDER
 RUN mkdir -p $STARBOUND_SCRIPTSFOLDER
+RUN mkdir -p $STARBOUND_CONFIGFOLDER
 RUN mkdir -p /opt/steamcmd
 
 # Steam CMD download and setup Starbound server
@@ -51,6 +53,10 @@ RUN chown -R starbound:starbound /opt/steamcmd
 COPY .${STARBOUND_SCRIPTSFOLDER}/start.sh ${STARBOUND_SCRIPTSFOLDER}/start.sh
 RUN chmod +x ${STARBOUND_SCRIPTSFOLDER}/start.sh
 
+# Starbound server configuration
+COPY .${STARBOUND_CONFIGFOLDER}/starbound_server.config ${STARBOUND_CONFIGFOLDER}/starbound_server.config
+
+# Change to starbound user
 USER starbound
 WORKDIR $STARBOUND_FOLDER
 
