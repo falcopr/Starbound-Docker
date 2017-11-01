@@ -1,8 +1,3 @@
-$SCRIPTDIR = Split-Path -Path $MyInvocation.MyCommand.Definition -Parent
-$SCRIPTDIR = "/" + (($SCRIPTDIR -replace "\\", "/") -replace ":", "").Trim("/")
-$DRIVELETTER = ($SCRIPTDIR -replace "^/(.*?)/(.*?)$", '/$1/').ToLower()
-$RESULTINGUNIXSCRIPTDIR = ($DRIVELETTER + ($SCRIPTDIR -replace "^/(.*?)/(.*?)$", '$2'))
-
 docker volume create starbound
 
 docker run -it --name starbound `
