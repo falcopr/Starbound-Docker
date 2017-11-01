@@ -32,10 +32,9 @@
     +workshop_download_item 211820 732276079 \
     +workshop_download_item 211820 731106237 \
     +quit
-7. Replace the current starbound_server.config with the starbound/config/starbound_server_frackin_universe.config
-8. Rename the above replaced config to starbound_server.config
-9. exit
-10. ./start.sh
+7. Replace /starbound/linux/sbinit.config with the ./starbound/config/sbinit.config
+8. exit
+9. ./start.sh
 
 ## Installing FrackingUniverse Mod (Client)
 1. In-game options check: 'Allow Assets Mismatch'
