@@ -1,2 +1,2 @@
 #!/bin/bash
-screen -d -m -S starbound ./run.sh
+screen -S starbound -dm bash -c './run.sh; echo $?; exec bash -i'
