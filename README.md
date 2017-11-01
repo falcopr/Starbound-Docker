@@ -2,7 +2,8 @@
 
 ## Get started
 1. ./build.sh
-2. ./run.sh
+2. ./install.sh
+3. ./run.sh
 
 ## Installing FrackingUniverse Mod (Server)
 1. docker run -it --rm -v starbound:/starbound --entrypoint /bin/bash falcoprescher/starbound:1.0
@@ -34,7 +35,7 @@
     +quit
 7. Replace /starbound/linux/sbinit.config with the ./starbound/config/sbinit.config
 8. exit
-9. ./start.sh
+9. ./run.sh
 
 ## Installing FrackingUniverse Mod (Client)
 1. In-game options check: 'Allow Assets Mismatch'

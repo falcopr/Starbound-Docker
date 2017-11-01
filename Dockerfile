@@ -12,13 +12,14 @@ ENV STARBOUND_FOLDER "/starbound"
 ENV STARBOUND_DATAFOLDER "${STARBOUND_FOLDER}/data"
 ENV STARBOUND_SCRIPTSFOLDER "${STARBOUND_FOLDER}/scripts"
 ENV STARBOUND_CONFIGFOLDER "${STARBOUND_FOLDER}/config"
+ENV TERM xterm
 
 # Package cleanup and language setup
 RUN apt-get clean && \
     apt-get update
 
 # Libraries and programs
-RUN apt-get install curl tar zip lib32stdc++6 git -y && \
+RUN apt-get install curl tar zip lib32stdc++6 git nano -y && \
     dpkg --add-architecture i386 && \
     apt-get install lib32gcc1 libvorbisfile3 -y
 
@@ -58,3 +59,4 @@ VOLUME $STARBOUND_DATAFOLDER
 
 # Start scripts
 ENTRYPOINT ["./scripts/start.sh"]
+CMD ["-i -s"]
