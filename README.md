@@ -12,31 +12,14 @@
 4. git checkout tags/5.4.878
 5. git clone https://github.com/sayterdarkwynd/FrackinRaces.git
 6. git checkout tags/4.283
-7. Execute the script below for getting all the custom races
-/opt/steamcmd/steamcmd.sh \
-    +@NoPromptForPassword 1 \
-    +login $STEAM_USERNAME $STEAM_PASSWORD \
-    +force_install_dir $STARBOUND_DATAFOLDER \
-    +workshop_download_item 211820 740694177 \
-    +workshop_download_item 211820 729558042 \
-    +workshop_download_item 211820 732452461 \
-    +workshop_download_item 211820 774083065 \
-    +workshop_download_item 211820 850109963 \
-    +workshop_download_item 211820 729597107 \
-    +workshop_download_item 211820 729429063 \
-    +workshop_download_item 211820 779096734 \
-    +workshop_download_item 211820 730529826 \
-    +workshop_download_item 211820 739436205 \
-    +workshop_download_item 211820 729622432 \
-    +workshop_download_item 211820 739676461 \
-    +workshop_download_item 211820 741550312 \
-    +workshop_download_item 211820 729432341 \
-    +workshop_download_item 211820 732276079 \
-    +workshop_download_item 211820 731106237 \
-    +quit
-8. Replace /starbound/linux/sbinit.config with the ./starbound/config/sbinit.config
-9. exit
-10. ./run.sh
+7. execute /starbound/scripts/install_fur.sh
+8. exit
+9. ./install.sh
+10. docker run -it --rm -v starbound:/starbound --entrypoint /bin/bash falcoprescher/starbound:1.0
+11. rm /starbound/linux/sbinit.config
+12. curl https://raw.githubusercontent.com/falcoprescher/Starbound-Docker/master/starbound/config/sbinit.config --output /starbound/linux/sbinit.config
+13. exit
+14. ./run.sh
 
 ## Installing FrackingUniverse Mod (Client)
 1. In-game options check: 'Allow Assets Mismatch'
