@@ -11,18 +11,31 @@
 4. git clone https://github.com/sayterdarkwynd/FrackinRaces.git
 5. git checkout tags/4.283
 6. Execute the script below for getting all the custom races
-workshop_item_ids=(740694177 729558042 732452461 774083065 850109963 729597107 729429063 779096734 730529826 739436205 729622432 739676461 741550312 729432341 732276079 731106237)
-for workshop_item_id in "${workshop_item_ids[@]}"
-do
-    /opt/steamcmd/steamcmd.sh \
-        +@NoPromptForPassword 1 \
-        +login $STEAM_USERNAME $STEAM_PASSWORD \
-        +force_install_dir $STARBOUND_DATAFOLDER \
-        +workshop_download_item 211820 $workshop_item_id \
-        +quit
-done
-7. exit
-8. ./start.sh
+/opt/steamcmd/steamcmd.sh \
+    +@NoPromptForPassword 1 \
+    +login $STEAM_USERNAME $STEAM_PASSWORD \
+    +force_install_dir $STARBOUND_DATAFOLDER \
+    +workshop_download_item 211820 740694177 \
+    +workshop_download_item 211820 729558042 \
+    +workshop_download_item 211820 732452461 \
+    +workshop_download_item 211820 774083065 \
+    +workshop_download_item 211820 850109963 \
+    +workshop_download_item 211820 729597107 \
+    +workshop_download_item 211820 729429063 \
+    +workshop_download_item 211820 779096734 \
+    +workshop_download_item 211820 730529826 \
+    +workshop_download_item 211820 739436205 \
+    +workshop_download_item 211820 729622432 \
+    +workshop_download_item 211820 739676461 \
+    +workshop_download_item 211820 741550312 \
+    +workshop_download_item 211820 729432341 \
+    +workshop_download_item 211820 732276079 \
+    +workshop_download_item 211820 731106237 \
+    +quit
+7. Replace the current starbound_server.config with the starbound/config/starbound_server_frackin_universe.config
+8. Rename the above replaced config to starbound_server.config
+9. exit
+10. ./start.sh
 
 ## Installing FrackingUniverse Mod (Client)
 1. In-game options check: 'Allow Assets Mismatch'
