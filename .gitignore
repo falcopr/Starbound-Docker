@@ -1,2 +1,3 @@
 /run.ps1
 /run.sh
+/backup/*.tar.gz
