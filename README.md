@@ -7,11 +7,12 @@
 
 ## Installing FrackingUniverse Mod (Server)
 1. docker run -it --rm -v starbound:/starbound --entrypoint /bin/bash falcoprescher/starbound:1.0
-2. git clone https://github.com/sayterdarkwynd/FrackinUniverse.git
-3. git checkout tags/5.4.878
-4. git clone https://github.com/sayterdarkwynd/FrackinRaces.git
-5. git checkout tags/4.283
-6. Execute the script below for getting all the custom races
+2. cd mods
+3. git clone https://github.com/sayterdarkwynd/FrackinUniverse.git
+4. git checkout tags/5.4.878
+5. git clone https://github.com/sayterdarkwynd/FrackinRaces.git
+6. git checkout tags/4.283
+7. Execute the script below for getting all the custom races
 /opt/steamcmd/steamcmd.sh \
     +@NoPromptForPassword 1 \
     +login $STEAM_USERNAME $STEAM_PASSWORD \
@@ -33,9 +34,9 @@
     +workshop_download_item 211820 732276079 \
     +workshop_download_item 211820 731106237 \
     +quit
-7. Replace /starbound/linux/sbinit.config with the ./starbound/config/sbinit.config
-8. exit
-9. ./run.sh
+8. Replace /starbound/linux/sbinit.config with the ./starbound/config/sbinit.config
+9. exit
+10. ./run.sh
 
 ## Installing FrackingUniverse Mod (Client)
 1. In-game options check: 'Allow Assets Mismatch'
