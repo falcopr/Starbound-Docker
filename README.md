@@ -19,7 +19,7 @@
 
 ## Install Backup and FrackinUniverse Update as Cronjob (Server)
 1. crontab -e
-2. *       3       *       *       *       /home/fp0x00/Projekte/Starbound-Docker/cron_update.sh
+2. 0 3 * * * /home/fp0x00/Projekte/Starbound-Docker/cron_update.sh
 3. Save and exit
 
 ## Installing FrackingUniverse Mod (Client)
