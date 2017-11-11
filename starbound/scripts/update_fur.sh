@@ -7,5 +7,5 @@ cd ../FrackinRaces
 git fetch
 frackinRacesLatestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
 git checkout $frackinRacesLatestTag
-cd ../..
+cd ../../..
 ./scripts/update_fur_chars.sh

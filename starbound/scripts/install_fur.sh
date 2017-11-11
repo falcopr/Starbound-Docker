@@ -8,5 +8,5 @@ cd ../FrackinRaces
 git clone https://github.com/sayterdarkwynd/FrackinRaces.git
 frackinRacesLatestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
 git checkout $frackinRacesLatestTag
-cd ../..
+cd ../../..
 ./scripts/update_fur_chars.sh
