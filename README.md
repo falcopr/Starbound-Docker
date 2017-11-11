@@ -17,6 +17,11 @@
 ## Update FrackingUniverse Mode (Server)
 1. docker run -it --rm -v starbound:/starbound/data --entrypoint ./scripts/update_fur.sh falcoprescher/starbound:1.1
 
+## Install Backup and FrackinUniverse Update as Cronjob (Server)
+1. crontab -e
+2. *       3       *       *       *       /home/fp0x00/Projekte/Starbound-Docker/cron_update.sh
+3. Save and exit
+
 ## Installing FrackingUniverse Mod (Client)
 1. In-game options check: 'Allow Assets Mismatch'
 2. Steam Workshop install 'Xbawks Character Extender', 'Frackin' Universe', 'Frackin' Races', 'Frackin' Music'
