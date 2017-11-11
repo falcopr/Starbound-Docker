@@ -4,7 +4,7 @@ git clone https://github.com/sayterdarkwynd/FrackinUniverse.git
 cd FrackinUniverse
 frackinUniverseLatestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
 git checkout $frackinUniverseLatestTag
-../FrackinRaces
+cd ../FrackinRaces
 git clone https://github.com/sayterdarkwynd/FrackinRaces.git
 frackinRacesLatestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
 git checkout $frackinRacesLatestTag
