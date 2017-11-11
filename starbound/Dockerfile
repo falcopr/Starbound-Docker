@@ -42,11 +42,11 @@ RUN chown -R starbound:starbound $STARBOUND_FOLDER
 RUN chown -R starbound:starbound /opt/steamcmd
 
 # Grant execution rights for script
-COPY .${DATAFOLDER} ${STARBOUND_SCRIPTSFOLDER}/
+COPY ./${DATAFOLDER} ${STARBOUND_SCRIPTSFOLDER}/
 RUN chmod +x ${STARBOUND_SCRIPTSFOLDER}/*.sh
 
 # Starbound server configuration
-COPY .${CONFIGFOLDER}/starbound_server.config ${STARBOUND_CONFIGFOLDER}/starbound_server.config
+COPY ./${CONFIGFOLDER}/starbound_server.config ${STARBOUND_CONFIGFOLDER}/starbound_server.config
 
 # Change to starbound user
 USER starbound
