@@ -10,8 +10,10 @@ ENV STEAM_USERNAME "anonymous"
 ENV STEAM_PASSWORD ""
 ENV STARBOUND_FOLDER "/starbound"
 ENV STARBOUND_DATAFOLDER "${STARBOUND_FOLDER}/data"
-ENV STARBOUND_SCRIPTSFOLDER "${STARBOUND_FOLDER}/scripts"
-ENV STARBOUND_CONFIGFOLDER "${STARBOUND_FOLDER}/config"
+ENV DATAFOLDER "data"
+ENV STARBOUND_SCRIPTSFOLDER "${STARBOUND_FOLDER}/${DATAFOLDER}"
+ENV CONFIGFOLDER "config"
+ENV STARBOUND_CONFIGFOLDER "${STARBOUND_FOLDER}/${CONFIGFOLDER}"
 ENV TERM xterm
 
 # Package cleanup and language setup
@@ -40,11 +42,11 @@ RUN chown -R starbound:starbound $STARBOUND_FOLDER
 RUN chown -R starbound:starbound /opt/steamcmd
 
 # Grant execution rights for script
-COPY .${STARBOUND_SCRIPTSFOLDER} ${STARBOUND_SCRIPTSFOLDER}/
+COPY .${DATAFOLDER} ${STARBOUND_SCRIPTSFOLDER}/
 RUN chmod +x ${STARBOUND_SCRIPTSFOLDER}/*.sh
 
 # Starbound server configuration
-COPY .${STARBOUND_CONFIGFOLDER}/starbound_server.config ${STARBOUND_CONFIGFOLDER}/starbound_server.config
+COPY .${CONFIGFOLDER}/starbound_server.config ${STARBOUND_CONFIGFOLDER}/starbound_server.config
 
 # Change to starbound user
 USER starbound
