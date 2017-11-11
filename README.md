@@ -6,17 +6,17 @@
 3. ./run.sh
 
 ## Installing FrackingUniverse Mod (Server)
-1. docker run -it --rm -v starbound:/starbound --entrypoint ./scripts/update_fur.sh falcoprescher/starbound:1.0
+1. docker run -it --rm -v starbound:/starbound/data --entrypoint ./scripts/update_fur.sh falcoprescher/starbound:1.1
 2. exit
 3. ./install.sh
-4. docker run -it --rm -v starbound:/starbound --entrypoint /bin/bash falcoprescher/starbound:1.0
+4. docker run -it --rm -v starbound:/starbound/data --entrypoint /bin/bash falcoprescher/starbound:1.1
 5. rm /starbound/linux/sbinit.config
 6. curl https://raw.githubusercontent.com/falcoprescher/Starbound-Docker/master/starbound/config/sbinit.config --output /starbound/linux/sbinit.config
 7. exit
 8. ./run.sh
 
 ## Update FrackingUniverse Mode (Server)
-1. docker run -it --rm -v starbound:/starbound --entrypoint ./scripts/update_fur.sh /bin/bash falcoprescher/starbound:1.0
+1. docker run -it --rm -v starbound:/starbound/data --entrypoint ./scripts/update_fur.sh falcoprescher/starbound:1.1
 
 ## Installing FrackingUniverse Mod (Client)
 1. In-game options check: 'Allow Assets Mismatch'

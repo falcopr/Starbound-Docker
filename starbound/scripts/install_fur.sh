@@ -1,5 +1,5 @@
 #!/bin/bash
-cd mods
+cd data/mods
 git clone https://github.com/sayterdarkwynd/FrackinUniverse.git
 cd FrackinUniverse
 frackinUniverseLatestTag=$(git describe --tags `git rev-list --tags --max-count=1`)

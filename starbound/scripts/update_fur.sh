@@ -1,4 +1,5 @@
 #!/bin/bash
+cd data
 cd mods
 cd FrackinUniverse
 frackinUniverseLatestTag=$(git describe --tags `git rev-list --tags --max-count=1`)
