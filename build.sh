@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t falcoprescher/starbound:1.0 .
+docker build -t falcoprescher/starbound:1.1 .

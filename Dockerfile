@@ -2,7 +2,7 @@ FROM debian:buster
 
 LABEL Maintainer="Falco Prescher"
 LABEL Github="https://github.com/falcoprescher/Starbound-Docker"
-LABEL Version="v1.0"
+LABEL Version="v1.1"
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -40,8 +40,8 @@ RUN chown -R starbound:starbound $STARBOUND_FOLDER
 RUN chown -R starbound:starbound /opt/steamcmd
 
 # Grant execution rights for script
-COPY .${STARBOUND_SCRIPTSFOLDER}/start.sh ${STARBOUND_SCRIPTSFOLDER}/start.sh
-RUN chmod +x ${STARBOUND_SCRIPTSFOLDER}/start.sh
+COPY .${STARBOUND_SCRIPTSFOLDER} ${STARBOUND_SCRIPTSFOLDER}/
+RUN chmod +x ${STARBOUND_SCRIPTSFOLDER}/*.sh
 
 # Starbound server configuration
 COPY .${STARBOUND_CONFIGFOLDER}/starbound_server.config ${STARBOUND_CONFIGFOLDER}/starbound_server.config
